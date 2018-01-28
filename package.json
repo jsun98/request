@@ -2,7 +2,7 @@
   "name": "request",
   "version": "1.0.0",
   "description": "A tool to manage money between friends.",
-  "main": "server.js",
+  "main": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "export NODE_ENV=development && babel-node --presets es2015 index.js"

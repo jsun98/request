@@ -19,3 +19,5 @@ app.listen(port, () => {
 
 // TODO: move to a config file
 export dynamodb = AWS.DynamoDB(dynamoConfig);
+// need to connect the database to with...
+// var DynamoDBStore = require('connect-dynamodb')({session: session});
