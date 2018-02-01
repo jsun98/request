@@ -9,7 +9,18 @@ node -v `v8.9.4`
 
 npm -v `4.6.1`
 
-[dynamodb setup](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DynamoDBLocal.html)
+### Setup to develop
+1. Need to set the correct environment variables
+  1. Create a local `.env file`
+  2. Config necessary environment variables:
+  ```
+  DEV_DB_HOST=localhost
+  DEV_DB_USER=root
+  DEV_DB_PASS='...'
+  DEV_APP_PORT=3000
+  ```
+
+
 
 ### TODO
 1. setup eslint for server-side code
