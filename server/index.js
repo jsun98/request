@@ -1,23 +1,25 @@
+import config from '../config';
 import express from 'express';
-import AWS from 'aws-sdk';
+import {createConnection} from 'mysql';
 
-const port = 3000;
 const app = express();
-const dynamoConfig = {
-  	"region":"us-east-2",
-    endpoint: "http://localhost:8000"
-}
+
+const mysql = createConnection({
+  host: config.db.host,
+  user: config.db.user,
+  password: config.db.pass
+});
+
+mysql.connect(function(err) {
+  if (err) throw err;
+  console.log("Connected!");
+});
 
 app.get('/', (req, res) =>
   res.send('Hello World!')
 );
 
-app.listen(port, () => {
+app.listen(config.app.port, () => {
   console.log('Node Environment: ' + process.env.NODE_ENV);
-  console.log('Application listening on port: ' + port);
+  console.log('Application listening on port: ' + config.app.port);
 });
-
-// TODO: move to a config file
-export dynamodb = AWS.DynamoDB(dynamoConfig);
-// need to connect the database to with...
-// var DynamoDBStore = require('connect-dynamodb')({session: session});
