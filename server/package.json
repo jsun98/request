@@ -13,5 +13,5 @@
     "pretty-error": "^2.1.1"
   },
   "repository": "https://github.com/eric-zhu-uw/request.git",
-  "private": true,
+  "private": true
 }

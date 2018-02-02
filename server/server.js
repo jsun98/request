@@ -3,7 +3,7 @@ import express from 'express';
 import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
 import PrettyError from 'pretty-error';
-import config from './config';
+// import config from './config';
 
 const app = express();
 
@@ -15,7 +15,7 @@ app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-if (process.env.node_env) {
+if (process.env.NODE_ENV) {
   app.enable('trust proxy');
 }
 
@@ -34,8 +34,9 @@ app.use((err, req, res, next) => {
   res.send(pe.render(err));
 });
 
-app.listen(config.port, () => {
-  console.info(`The server is running at http://localhost:${config.port}/`);
+// TODO: change port config
+app.listen('3000', () => {
+  console.info(`The server is running at http://localhost:${3000}/`);
 });
 
 export default app;
