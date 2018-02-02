@@ -9,6 +9,9 @@ node -v `v8.9.4`
 
 npm -v `4.6.1`
 
+### Install dependencies
+simply run `yarn` in your command line
+
 ### Setup to develop
 1. Need to set the correct environment variables
     1. Create a local `.env file`
