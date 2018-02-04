@@ -1,8 +1,6 @@
 import sequelize from '../sequelize';
 // import models here
 
-function sync(...args) {
-  return sequelize.sync(...args);
-}
+const sync = (...args) => sequelize.sync(...args);
 
 export default { sync };
