@@ -9,8 +9,10 @@
     "dotenv": "^5.0.0",
     "express": "^4.16.2",
     "mysql": "^2.15.0",
+    "mysql2": "^1.5.1",
     "path": "^0.12.7",
-    "pretty-error": "^2.1.1"
+    "pretty-error": "^2.1.1",
+    "sequelize": "^4.32.6"
   },
   "repository": "https://github.com/eric-zhu-uw/request.git",
   "private": true
