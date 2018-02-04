@@ -16,7 +16,9 @@
     "url": "https://github.com/eric-zhu-uw/request/issues"
   },
   "homepage": "https://github.com/eric-zhu-uw/request#readme",
-  "dependencies": {},
+  "dependencies": {
+    "sequelize": "^4.32.6"
+  },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-eslint": "^8.2.1",
