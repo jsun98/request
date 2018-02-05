@@ -5,7 +5,7 @@ const sync = (...args) => {
   sequelize
     .sync(...args)
     .then(() => {
-      console.info('Successful synced database.');
+      console.info('Successfully synced database.');
     })
     .catch(err => {
       console.error('Unable to sync database', err);

@@ -3,6 +3,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const env = process.env.NODE_ENV;
+const sessionExpiryDate = new Date(Date.now() + 24 * 60 * 60 * 1000); // 1 day
 
 const development = {
   app: {
@@ -16,6 +17,11 @@ const development = {
     options: {
       forced: process.env.DEV_DB_OPT_FORCED || true,
     },
+  },
+  session: {
+    name: 'sessionId',
+    secret: 'KMylyQyPsgCLaAxbMIEH',
+    cookie: { httpOnly: true, expires: sessionExpiryDate },
   },
 };
 
