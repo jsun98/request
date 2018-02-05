@@ -3,7 +3,7 @@ import express from 'express';
 import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
 import PrettyError from 'pretty-error';
-import models from './data/models';
+import Model from './data/models';
 import config from './config';
 
 const app = express();
@@ -35,18 +35,11 @@ app.use((err, req, res, next) => {
   res.send(pe.render(err));
 });
 
-// TODO: change port config
-models
-  .sync(config.db.options)
-  .then(() => {
-    app.listen(config.app.port, () => {
-      console.info(
-        `The server is running at http://localhost:${config.app.port}/`,
-      );
-    });
-  })
-  .catch(err => {
-    console.error(err);
-  });
+// sync database table to models
+Model.sync(config.db.options);
+
+app.listen(config.app.port, () => {
+  console.info(`The server is running at http://localhost:${config.app.port}/`);
+});
 
 export default app;
