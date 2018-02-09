@@ -1,8 +1,6 @@
 import sequelize from '../sequelize';
 import User from './user';
 import Request from './request';
-import Active from './active';
-import Ledger from './ledger';
 
 const sync = (...args) => {
   sequelize
@@ -17,5 +15,5 @@ const sync = (...args) => {
 
 const Model = { sync };
 
-export { User, Request, Ledger, Active };
+export { User, Request };
 export default Model;

@@ -11,7 +11,7 @@ const Request = sequelize.define('Request', {
     type: Type.STRING(20),
     allowNull: false,
   },
-  receive: {
+  receiver: {
     type: Type.STRING(20),
     allowNull: false,
   },
