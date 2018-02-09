@@ -1,5 +1,6 @@
 import sequelize from '../sequelize';
 import User from './user';
+import Request from './request';
 
 const sync = (...args) => {
   sequelize
@@ -14,5 +15,5 @@ const sync = (...args) => {
 
 const Model = { sync };
 
-export { User };
+export { User, Request };
 export default Model;
