@@ -10,12 +10,12 @@ const Ledger = sequelize.define(
       autoIncrement: true,
       allowNull: false,
     },
-    debitUser: {
+    debit_user: {
       primaryKey: true,
       type: Type.STRING,
       allowNull: false,
     },
-    creditUser: {
+    credit_user: {
       primaryKey: true,
       type: Type.STRING,
       allowNull: false,
