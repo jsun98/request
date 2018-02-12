@@ -69,6 +69,8 @@ module.exports = {
     // ESLint plugin for prettier formatting
     // https://github.com/prettier/eslint-plugin-prettier
     'prettier/prettier': 'error',
+    'import/prefer-default-export': 0,
+    'camelcase': 0,
   },
 
   settings: {

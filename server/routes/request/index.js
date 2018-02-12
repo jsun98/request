@@ -36,9 +36,9 @@ router.post('/accept', (req, res) => {
         .then(() => Request.findOne(findOneParams, transaction))
         .then(request => {
           const { dataValues } = request;
-          const debitUser = receiver;
-          const { sender: creditUser, description, amount } = dataValues;
-          const createParams = { debitUser, creditUser, amount, description };
+          const debit_user = receiver;
+          const { sender: credit_user, description, amount } = dataValues;
+          const createParams = { debit_user, credit_user, amount, description };
 
           return Ledger.create(createParams, transaction);
         });
