@@ -3,16 +3,21 @@ import { Router } from 'express';
 import login from './login';
 import signup from './signup';
 import profile from './profile';
-import sequelize from  '../data/sequelize';
+import request from './request';
+import sequelize from '../data/sequelize';
 
 const router = Router();
 
 router.use('/login', login);
 router.use('/signup', signup);
 router.use('/profile', profile);
+router.use('/request', request);
 
 router.get('/', (req, res) => {
-  sequelize.query(`
+  // TODO: need to get rid of and put as a hook
+  sequelize
+    .query(
+      `
   CREATE TRIGGER isActive
      AFTER INSERT ON LEDGER
      FOR EACH ROW
@@ -38,7 +43,9 @@ router.get('/', (req, res) => {
           INSERT INTO ACTIVE (OWER, OWED, AMOUNT) VALUES (NEW.CREDIT_USER, NEW.DEBIT_USER,NEW.AMOUNT);
        END IF;
     END;
-  `).then((res) => console.log(res));
+  `,
+    )
+    .then(res => console.log(res));
   res.send('hello world');
 });
 

@@ -1,8 +1,8 @@
 import sequelize from '../sequelize';
 import User from './user';
 import Request from './request';
-import Active from './active';
 import Ledger from './ledger';
+import Active from './active';
 
 const sync = (...args) => {
   sequelize

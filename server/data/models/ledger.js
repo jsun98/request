@@ -1,40 +1,38 @@
 import Type from 'sequelize';
 import sequelize from '../sequelize';
 
-const Ledger = sequelize.define('Ledger', {
-  id: {
-    primaryKey: true,
-    type: Type.INTEGER,
-    allowNull: false,
-  },
-  date: {
-    type: Type.DATE,
-
-  },
-  debit_user: {
-    primaryKey: true,
-    type: Type.STRING,
-    allowNull: false,
-    set(val) {
-      this.setDataValue('debit_user', val.toLowerCase());
+const Ledger = sequelize.define(
+  'Ledger',
+  {
+    id: {
+      primaryKey: true,
+      type: Type.INTEGER,
+      autoIncrement: true,
+      allowNull: false,
+    },
+    debitUser: {
+      primaryKey: true,
+      type: Type.STRING,
+      allowNull: false,
+    },
+    creditUser: {
+      primaryKey: true,
+      type: Type.STRING,
+      allowNull: false,
+    },
+    amount: {
+      type: Type.DOUBLE(10, 2),
+      allowNull: false,
+    },
+    description: {
+      type: Type.STRING(140),
+      allowNull: true,
     },
   },
-  credit_user: {
-    primaryKey: true,
-    type: Type.STRING,
-    allowNull: false,
-    set(val) {
-      this.setDataValue('credit_user', val.toLowerCase());
-    },
+  {
+    freezeTableName: true,
+    tableName: 'Ledger',
   },
-  amount: {
-    type: Type.DOUBLE(10,2),
-    allowNull: false,
-  },
-},
-{
-  freezeTableName: true,
-  tableName: 'Ledger'
-});
+);
 
 export default Ledger;

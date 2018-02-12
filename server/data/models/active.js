@@ -19,7 +19,7 @@ const Active = sequelize.define('Active', {
     },
   },
   amount: {
-    type: Type.DOUBLE(10,2),
+    type: Type.DOUBLE(10, 2),
     allowNull: false,
   },
 });
