@@ -9,11 +9,11 @@ const sync = (...args) => {
     .sync(...args)
     .then(() => {
       console.info('Successfully synced database.');
-      sequelize.query('DROP TRIGGER IF EXISTS updateACTIVESs;').then(() => {
+      sequelize.query('DROP TRIGGER IF EXISTS updateActives;').then(() => {
         sequelize
           .query(
             `
-          CREATE TRIGGER updateACTIVESs
+          CREATE TRIGGER updateActives
              AFTER INSERT ON LEDGER
              FOR EACH ROW
              BEGIN
@@ -21,7 +21,7 @@ const sync = (...args) => {
                IF ((NEW.debitUser, NEW.creditUser) IN (
                  SELECT OWED, OWER FROM ACTIVES
                )) THEN
-                  UPDATE ACTIVES SET ACTIVES.AMOUNT = ACTIVES.AMOUNT+NEW.AMOUNT WHERE NEW.debitUser = OWED AND NEW.creditUser = OWER;
+                  UPDATE ACTIVES SET ACTIVES.AMOUNT = ACTIVES.AMOUNT+NEW.AMOUNT, updatedAt=CURRENT_TIMESTAMP WHERE NEW.debitUser = OWED AND NEW.creditUser = OWER;
                ELSEIF ((NEW.DEBITUSER, NEW.CREDITUSER) IN (
                  SELECT OWER, OWED FROM ACTIVES
                )) THEN
