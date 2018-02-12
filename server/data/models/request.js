@@ -5,7 +5,12 @@ const Request = sequelize.define('Request', {
   id: {
     primaryKey: true,
     type: Type.INTEGER,
+    autoIncrement: true,
     allowNull: false,
+  },
+  active: {
+    type: Type.DATE,
+    allowNull: true,
   },
   sender: {
     type: Type.STRING(20),
@@ -16,7 +21,7 @@ const Request = sequelize.define('Request', {
     allowNull: false,
   },
   amount: {
-    type: Type.DECIMAL,
+    type: Type.DOUBLE(10, 2),
     allowNull: false,
   },
   description: {
