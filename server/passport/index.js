@@ -12,6 +12,8 @@ import { User } from '../data/models';
  * To logout: req.logout()
  */
 
+// TODO: should serialize more than just the ID or else hackers would
+//       be able to mock the API calls
 passport.serializeUser((user, done) => {
   done(null, user.id);
 });
