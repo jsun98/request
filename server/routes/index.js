@@ -19,11 +19,27 @@ router.get('/', (req, res) => {
     })
     .then(() => {
       Ledger.create({
-        id: 5,
+        id: 1,
         date: '2018-01-01',
         debit_user: 'bbb',
         credit_user: 'aaa',
         amount: 20,
+      }).then(() => {
+        Ledger.create({
+          id: 2,
+          date: '2018-01-01',
+          debit_user: 'bbb',
+          credit_user: 'aaa',
+          amount: 20,
+        }).then(() => {
+          Ledger.create({
+            id: 3,
+            date: '2018-01-01',
+            debit_user: 'aaa',
+            credit_user: 'bbb',
+            amount: 50,
+          });
+        });
       });
     });
   res.send('hello world');
