@@ -47,4 +47,14 @@ const Triggers = {
   updateBalance,
 };
 
-export { Triggers };
+const FriendStatus = {
+  PENDING: 1,
+  ACCEPTED: 2,
+  BLOCKED: 3,
+};
+
+const ModelTypes = {
+  FriendStatus,
+};
+
+export { Triggers, ModelTypes };

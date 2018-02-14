@@ -3,6 +3,7 @@ import User from './user';
 import Request from './request';
 import Ledger from './ledger';
 import Active from './active';
+import Friend from './friend';
 import { Triggers } from './constants';
 
 const sync = (...args) => {
@@ -27,5 +28,5 @@ const sync = (...args) => {
 
 const Model = { sync };
 
-export { User, Request, Ledger, Active };
+export { User, Request, Ledger, Active, Friend };
 export default Model;
