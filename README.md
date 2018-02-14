@@ -24,19 +24,44 @@ node -v `v8.9.4`
 
 npm -v `4.6.1`
 
+## NPM scripts
+
+`yarn start`: start server in dev mode, with automatic server refresh
+`yarn build`: build to `/build` folder
+
+## Modes
+
+append `--env.OPTION` after `yarn xxx` command
+
+ex. `yarn start --env.release`
+
+### Production build
+
+`--env.release`
+
+note: production option does not start the server
+
+### Verbose logging
+
+`--env.verbose`
+
+enables 'silly' level logging
+
+### Port
+
+`--env.port=PORTNUM`
+
+default port is 3000
+
+### Build Only
+
+`--env.buildonly`
+
+only produces the bundle file without starting server
+
 ## Install dependencies
 
-### Dev tools Setup
-
-run `yarn` under the root directory should take care of everything
-
-### Server modules
-
-run `yarn` inside `./server`
-
-### Native modules
-
-run `yarn` inside `./native`
+simply run `yarn` inside root directory
 
 ## Setup to develop
 
@@ -47,5 +72,4 @@ run `yarn` inside `./native`
    DEV_DB_HOST=localhost
    DEV_DB_USER=root
    DEV_DB_PASS='...'
-   DEV_APP_PORT=3000
    ```
