@@ -6,12 +6,12 @@ const Friend = sequelize.define(
   {
     user_1: {
       primaryKey: true,
-      type: Type.STRING,
+      type: Type.STRING(20),
       allowNull: false,
     },
     user_2: {
       primaryKey: true,
-      type: Type.STRING,
+      type: Type.STRING(20),
       allowNull: false,
     },
     status: {
@@ -19,12 +19,11 @@ const Friend = sequelize.define(
       allowNull: false,
     },
     action_user: {
-      type: Type.STRING,
+      type: Type.STRING(20),
       allowNull: false,
     },
   },
   {
-    freezeTableName: true,
     tableName: 'Friend',
   },
 );
