@@ -3,7 +3,7 @@ import User from './user';
 import Request from './request';
 import Ledger from './ledger';
 import Active from './active';
-import { Triggers } from './sqlConstants';
+import { Triggers } from './constants';
 
 const sync = (...args) => {
   sequelize
@@ -13,7 +13,11 @@ const sync = (...args) => {
       sequelize.query(Triggers.updateActives.drop).then(() => {
         sequelize
           .query(Triggers.updateActives.create)
-          .then(() => console.log('Trigger created successfully'));
+          .then(() => console.log('Update Actives Trigger created'));
+
+        sequelize
+          .query(Triggers.updateBalance.create)
+          .then(() => console.log('Update Balance Trigger created'));
       });
     })
     .catch(err => {
