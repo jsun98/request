@@ -29,8 +29,22 @@ const updateActives = {
   `,
 };
 
+const updateBalance = {
+  drop: 'DROP TRIGGER IF EXISTS updateBalance;',
+  create: `
+  CREATE TRIGGER updateBalance
+    AFTER INSERT ON LEDGER
+    FOR EACH ROW
+    BEGIN
+      UPDATE USERS SET balance = USERS.balance+NEW.amount, updatedAt=CURRENT_TIMESTAMP WHERE username=NEW.debit_user;
+      UPDATE USERS SET balance = USERS.balance-NEW.amount, updatedAt=CURRENT_TIMESTAMP WHERE username=NEW.credit_user;
+    END;
+  `,
+};
+
 const Triggers = {
   updateActives,
+  updateBalance,
 };
 
 export { Triggers };

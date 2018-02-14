@@ -23,6 +23,11 @@ const User = sequelize.define('User', {
     type: Type.STRING,
     allowNull: true,
   },
+  balance: {
+    type: Type.DOUBLE(10, 2),
+    allowNull: false,
+    defaultValue: 0,
+  },
 });
 
 export default User;
