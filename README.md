@@ -25,13 +25,14 @@ node -v `v8.9.4`
 npm -v `4.6.1`
 
 ## Developer setup
+
 ### Install dependencies
 
 simply run `yarn` inside root directory
 
 ### Running the setup script
 
-`$ sh ./make.sh`
+`$ sh ./tools/make.sh`
 
 ### NPM scripts available
 
@@ -68,9 +69,10 @@ default port is 3000
 
 only produces the bundle file without starting server
 
-   2. Config necessary environment variables:
-   ```
-   DEV_DB_HOST=localhost
-   DEV_DB_USER=root
-   DEV_DB_PASS='...'
-   ```
+2. Config necessary environment variables:
+
+```
+DEV_DB_HOST=localhost
+DEV_DB_USER=root
+DEV_DB_PASS='...'
+```
